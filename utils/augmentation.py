@@ -15,7 +15,7 @@ train_transforms = A.Compose([
         A.MedianBlur(blur_limit=3, p=0.1),
         A.Blur(blur_limit=3, p=0.1),
     ], p=0.2),
-    A.ShiftScaleRotate(shift_limit=0.0625, scale_limit=0.2, rotate_limit=45, p=0.2),
+    A.ShiftScaleRotate(shift_limit=0.0625, scale_limit=0.2, rotate_limit=10, p=0.2),
     A.OneOf([
         A.OpticalDistortion(p=0.3),
         A.GridDistortion(p=0.1),
@@ -29,10 +29,3 @@ train_transforms = A.Compose([
     A.HueSaturationValue(p=0.3),
     A.ToFloat()
 ])
-
-
-img = cv2.imread('../data/Train/A/A002.png', 1)
-img = cv2.resize(img, (224, 224))
-
-aug_data = train_transforms(image=img)
-print(np.max(aug_data['image']))

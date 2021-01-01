@@ -34,7 +34,7 @@ while True:
     # if frame is read correctly ret is True
     if not ret:
         print("Can't receive frame (stream end?). Exiting ...")
-        break
+        break   
     # Our operations on the frame come here
     rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     rgb = rgb[int(r[1]):int(r[1]+r[3]), int(r[0]):int(r[0]+r[2])]

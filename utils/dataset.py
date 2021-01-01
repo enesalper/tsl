@@ -22,7 +22,7 @@ def decode_image(path, labels):
     else:
         img = tf.image.decode_png(img_bin, channels=3)
 
-    encoded_label = tf.cast(label == labels, dtype=tf.float32, name="encoded_label")
+    encoded_label = tf.cast(label == labels, dtype=tf.float32)
     return img, encoded_label
 
 
@@ -93,8 +93,7 @@ if __name__ == "__main__":
     dataset_test = Dataset("data/Test", "png", num_parallel_calls=tf.data.experimental.AUTOTUNE, is_training=False, target_shape= (224,224))
     test_ds = dataset_test.get_ds()
 
-    for im, l in train_ds.batch(1).take(10).as_numpy_iterator():
-        im = im[0]
+    for im, l in train_ds.take(10).as_numpy_iterator():
         print(np.min(im))
         print(np.max(im))
 

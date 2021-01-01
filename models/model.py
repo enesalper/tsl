@@ -26,7 +26,6 @@ class DenseModel(Backbone):
         self.top = self.top_model(top_input=self.backbone.output_shape)
         self.model = self.create_combined_model()
 
-
     def create_combined_model(self):
         model = Sequential([
             self.backbone,
@@ -113,7 +112,3 @@ if __name__ == "__main__":
 
     dm.set_freeze(0)
     dm.model.summary()
-
-
-
-

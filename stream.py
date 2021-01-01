@@ -3,7 +3,8 @@ from rasp_inference import TSLReader
 
 port = 3030
 require_login = False
-streamer = Streamer(port, require_login)
+streamer = Streamer(port, require_login, stream_res=(320, 240), frame_rate=5)
+streamer.thread = 4
 
 reader = TSLReader(
     labels_txt='labels.txt',
