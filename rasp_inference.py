@@ -46,7 +46,6 @@ class TSLReader:
             return None
 
 
-
     def get_labels(self) -> Union[None, list]:
         try:
             print(f"{self.get_time_str()}-[I] Reading Labels")
@@ -76,7 +75,7 @@ class TSLReader:
 
     def read_frame(self):
         ret, frame = self.capture.read()
-        if not ret:
+        if not ret:   #if capture.read() success, ret will return True...
             print(f"{self.get_time_str()}-[W] Can't receive frame (stream end?). Exiting ...")
             exit()
         else:

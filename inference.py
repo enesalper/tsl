@@ -53,8 +53,9 @@ while True:
     frame_new = cv2.putText(frame_new, word_list, (30,70), cv2.FONT_HERSHEY_PLAIN, 2, (0,0,255), 2)
 
     if np.max(output_data.squeeze()) > 0.40:
-        frame = cv2.putText(frame, str(labels[np.argmax(output_data).squeeze()]) + " " + str(np.max(output_data)), (30,30), cv2.FONT_HERSHEY_PLAIN,
-                            2, (0, 0, 255), 2)
+        frame = cv2.putText(frame,
+                            str(labels[np.argmax(output_data).squeeze()]) + " " + str(np.max(output_data)),
+                            (30,30), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
         temp_list.append(labels[np.argmax(output_data).squeeze()])
         if len(list(set(temp_list[-5:]))) == 1 and len(temp_list) > 5:
             f = open("test.txt", "a+")
