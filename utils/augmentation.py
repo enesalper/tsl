@@ -1,10 +1,8 @@
-import numpy as np
-import cv2
 import albumentations as A
 
 
 train_transforms = A.Compose([
-    A.Rotate((-20, 20), always_apply=True),
+    A.Rotate((-15, 15), always_apply=True),
     A.HorizontalFlip(p=0.5),
     A.OneOf([
         A.IAAAdditiveGaussianNoise(),

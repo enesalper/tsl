@@ -40,7 +40,6 @@ class DenseModel(Backbone):
         x = ReLU()(x)
         return x
 
-
     def top_model(self, top_input):
         x_inp = Input(batch_shape=top_input)
 
@@ -56,7 +55,6 @@ class DenseModel(Backbone):
 
         model = Model(inputs=x_inp, outputs=x_out, name=self.backbone_name + "_top")
         return model
-
 
     def set_freeze(self, block_select, opt = None, loss = None, metrics = None):
         backbone_id = 0
@@ -105,10 +103,10 @@ if __name__ == "__main__":
         loss=loss,
         metrics=metrics,
         num_hidden_units=None,
-        backbone_name='mobilenetv3',
+        backbone_name='mobilenetv2',
         input_shape=(224, 224, 3),
         backbone_weights='imagenet',
         backbone_trainable=True)
 
-    dm.set_freeze(0)
+    dm.set_freeze(2)
     dm.model.summary()

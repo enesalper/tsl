@@ -143,7 +143,7 @@ class TSLReader:
         fps = f"FPS: {1/(time.time()-t):0.1f}"
         org = self.show_fps(org, fps)
         decoded_pred = self.decode_prediction(pred, threshold=kwargs["threshold"])
-        print(self.word_placeholder)
+        # print(self.word_placeholder)
         if kwargs["show"]:
             cv2.imshow("Original image", org)
             cv2.imshow("Model input", frame[0].astype(np.uint8))
@@ -161,7 +161,7 @@ class TSLReader:
 
 
 if __name__ == "__main__":
-    reader = TSLReader(labels_txt="labels.txt", model_path="saved_models/model_mobilenetv3_aug_86.tflite", camera_device=0)
+    reader = TSLReader(labels_txt="labels.txt", model_path="saved_models/mobilenetv3_s_acc_86.tflite", camera_device=0)
     reader.set_bbox()
 
     while reader(show=True, threshold=0.4):

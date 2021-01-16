@@ -13,7 +13,7 @@ reader = TSLReader(
 # reader.set_bbox()
 
 while True:
-    frame = reader(stream=True, show=False, threshold=0.5)
+    frame = reader(stream=False, show=False, threshold=0.5)
 
     streamer.update_frame(frame)
 

@@ -3,7 +3,7 @@ from functools import partial
 
 import numpy as np
 import tensorflow as tf
-import cv2
+
 
 from utils.augmentation import train_transforms
 
@@ -87,10 +87,10 @@ class Dataset:
 
 
 if __name__ == "__main__":
-    dataset_train = Dataset("data/Train", "png", num_parallel_calls=tf.data.experimental.AUTOTUNE, is_training=True, target_shape= (224,224))
+    dataset_train = Dataset("../data/Train", "png", num_parallel_calls=tf.data.experimental.AUTOTUNE, is_training=True, target_shape= (224,224))
     train_ds = dataset_train.get_ds()
 
-    dataset_test = Dataset("data/Test", "png", num_parallel_calls=tf.data.experimental.AUTOTUNE, is_training=False, target_shape= (224,224))
+    dataset_test = Dataset("../data/Test", "png", num_parallel_calls=tf.data.experimental.AUTOTUNE, is_training=False, target_shape= (224,224))
     test_ds = dataset_test.get_ds()
 
     for im, l in train_ds.take(10).as_numpy_iterator():

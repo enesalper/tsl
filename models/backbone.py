@@ -24,7 +24,7 @@ class Backbone:
 
 
     def import_backbone(self):
-        """imports model and its hyper-parameters"""
+        """imports model and it's hyper-parameters"""
         if self.backbone_name.lower() == "densenet121":
             from tensorflow.keras.applications import DenseNet121
             model = DenseNet121(
@@ -32,9 +32,9 @@ class Backbone:
                 weights=self.backbone_weights,
                 input_shape= self.input_shape
             )
-        elif self.backbone_name.lower() == "mobilenetv3":
-            from tensorflow.keras.applications import MobileNetV3Small
-            model = MobileNetV3Small(
+        elif self.backbone_name.lower() == "mobilenetv2":
+            from tensorflow.keras.applications import MobileNetV2
+            model = MobileNetV2(
                 include_top=False,
                 weights=self.backbone_weights,
                 input_shape= self.input_shape
