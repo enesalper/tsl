@@ -29,6 +29,7 @@ def decode_image(path, labels):
 def process_image(image, label_encoded, target_size=(224,224), is_training=False):
     img = tf.image.resize(image, target_size)
     img = aug_process(img, is_training)
+    img = img / 255.
     return img, label_encoded
 
 

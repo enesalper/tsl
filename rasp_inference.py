@@ -161,7 +161,7 @@ class TSLReader:
 
 
 if __name__ == "__main__":
-    reader = TSLReader(labels_txt="labels.txt", model_path="saved_models/mobilenetv3_s_acc_86.tflite", camera_device=0)
+    reader = TSLReader(labels_txt="labels.txt", model_path="saved_models/effnetb0_acc_91.tflite", camera_device=0)
     reader.set_bbox()
 
     while reader(show=True, threshold=0.4):
